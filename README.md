@@ -1,19 +1,13 @@
 # Framer
 
-**TODO: Add description**
+## Examples
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add framer to your list of dependencies in `mix.exs`:
-
-        def deps do
-          [{:framer, "~> 0.0.1"}]
-        end
-
-  2. Ensure framer is started before your application:
-
-        def application do
-          [applications: [:framer]]
-        end
+```elixir
+Framer.start_link
+Framer.replace_frame(:a, %{data: 3})
+Framer.replace_frame(:b, %{parent: :a, left: :c})
+Framer.replace_frame(:c, %{parent: :b})
+Framer.query(:c, :data)
+Framer.query(:b, [:left, :data])
+Framer.query(:c, [:left, :left, :data])
+```
